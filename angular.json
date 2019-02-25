@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-dialog-router": {
+    "ng-dialog-router-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-dialog-router:build"
+            "browserTarget": "ng-dialog-router-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-dialog-router:build:production"
+              "browserTarget": "ng-dialog-router-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-dialog-router:build"
+            "browserTarget": "ng-dialog-router-app:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "ng-dialog-router-e2e": {
+    "ng-dialog-router-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ng-dialog-router:serve"
+            "devServerTarget": "ng-dialog-router-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ng-dialog-router:serve:production"
+              "devServerTarget": "ng-dialog-router-app:serve:production"
             }
           }
         },
@@ -134,7 +134,42 @@
           }
         }
       }
+    },
+    "ng-dialog-router": {
+      "root": "projects/ng-dialog-router",
+      "sourceRoot": "projects/ng-dialog-router/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-dialog-router/tsconfig.lib.json",
+            "project": "projects/ng-dialog-router/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-dialog-router/src/test.ts",
+            "tsConfig": "projects/ng-dialog-router/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-dialog-router/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-dialog-router/tsconfig.lib.json",
+              "projects/ng-dialog-router/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
-  "defaultProject": "ng-dialog-router"
+  "defaultProject": "ng-dialog-router-app"
 }

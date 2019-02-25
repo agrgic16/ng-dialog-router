@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-dialog-router": [
+        "dist/ng-dialog-router"
+      ],
+      "ng-dialog-router/*": [
+        "dist/ng-dialog-router/*"
+      ]
+    }
   }
 }

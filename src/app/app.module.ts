@@ -1,16 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
+import { RoutingModule } from './routing/routing.module';
+import { SampleDialogComponent } from './sample-dialog/sample-dialog.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SampleDialogComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RoutingModule,
+    MatDialogModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ]
 })
 export class AppModule { }
