@@ -1,0 +1,8 @@
+<p>
+  child-a works!
+</p>
+<ul>
+  <li *ngFor="let route of dialogRoutes">
+    <a [routerLink]="route">home/a/{{route.join('/')}}</a>
+  </li>
+</ul>

@@ -1,0 +1,6 @@
+<!---->
+<ul>
+  <li *ngFor="let route of dialogRoutes">
+    <a [routerLink]="route">home/{{route.join('/')}}</a>
+  </li>
+</ul>

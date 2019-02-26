@@ -13,6 +13,11 @@ describe('workspace-project App', () => {
     expect(page.getTitleText()).toEqual('Welcome to ng-dialog-router!');
   });
 
+  it('should navigate to a dialog route', () => {
+    page.navigateToDialog0();
+    expect(page.getDialog0TitleText()).toEqual('sample-dialog works!');
+  });
+
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);

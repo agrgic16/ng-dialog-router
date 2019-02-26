@@ -1,13 +1,37 @@
 {
   "name": "ng-dialog-router-app",
   "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Ante Grgić",
+    "email": "ante16@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agrgic16/ng-dialog-router"
+  },
+  "keywords": [
+    "angular",
+    "@angular",
+    "@angular/material",
+    "angular/router",
+    "ng",
+    "dialog",
+    "modal",
+    "router",
+    "routing",
+    "material",
+    "mat-dialog",
+    "ng-dialog-router"    
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "build_lib": "ng build ng-dialog-router",
+    "copy_readme": "cp README.md dist/ng-dialog-router",
     "npm_pack": "cd dist/ng-dialog-router && npm pack",
-    "package": "npm run build_lib && npm run npm_pack",
+    "package": "npm run build_lib && npm run copy_readme && npm run npm_pack",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
