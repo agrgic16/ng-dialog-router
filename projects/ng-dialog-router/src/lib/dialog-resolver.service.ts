@@ -12,20 +12,24 @@ export class DialogResolverService implements Resolve<MatDialogRef<any>> {
   resolve(nextRoute: ActivatedRouteSnapshot, routerState: RouterStateSnapshot) {
     let redirect: string[];
     let cfg: DialogRouteConfig;
+    let replace: boolean;
     const { data } = nextRoute;
     if (!!data && !!data.dlg) {
-      const { redirectPath, ...dlgCfg } = data.dlg as DialogRouteConfig;
+      const { redirectPath, replaceUrl, ...dlgCfg } = data.dlg as DialogRouteConfig;
       redirect = redirectPath;
       cfg = dlgCfg;
+      replace = replaceUrl;
     } else {
-      const { redirectPath, ...dlgCfg } = { } as DialogRouteConfig;
+      const { redirectPath, replaceUrl, ...dlgCfg } = { } as DialogRouteConfig;
       redirect = redirectPath;
       cfg = dlgCfg;
+      replace = replaceUrl;
     }
+
     const navigateAfterClose = redirect || routerState.url.split('/').filter(p => !nextRoute.url.map(u => u.path).includes(p) && p !== '');
     this.dialogRef = this.dialog.open(nextRoute.routeConfig.component, { ...cfg, closeOnNavigation: true });
     this.dialogRef.afterClosed().pipe(
-      tap(() => this.router.navigate(navigateAfterClose)),
+      tap(() => this.router.navigate(navigateAfterClose, {replaceUrl: replace})),
       take(1),
     ).subscribe();
 

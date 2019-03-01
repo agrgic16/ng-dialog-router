@@ -44,7 +44,7 @@ export const routes: Routes = [
         resolve: { dlgRef: DialogResolverService },
         path: '2',
         component: SampleDialogComponent,
-        data: { dlg: { width: '1000px', data: { name: 'Sample Dialog #2' } } as MatDialogConfig }
+        data: { dlg: { width: '1000px', data: { name: 'Sample Dialog #2' }, replaceUrl: true } as MatDialogConfig }
       },
       {
         resolve: { dlgRef: DialogResolverService },
