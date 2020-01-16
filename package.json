@@ -22,7 +22,7 @@
     "routing",
     "material",
     "mat-dialog",
-    "ng-dialog-router"    
+    "ng-dialog-router"
   ],
   "scripts": {
     "ng": "ng",
